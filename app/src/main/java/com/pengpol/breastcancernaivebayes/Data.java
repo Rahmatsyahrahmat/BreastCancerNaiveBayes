@@ -79,7 +79,7 @@ public class Data {
     public int getKelas() {
         return kelas;
     }
-    private double probabilitasJinak(ArrayList<Data> datas){
+    public  double probabilitasJinak(ArrayList<Data> datas){
         double count = 0;
         for(Data d:datas){
             if (d.getKelas()==2) count++;
@@ -87,7 +87,7 @@ public class Data {
         message = message+"P(Jinak) = "+count/datas.size()+"\n";
         return count/datas.size();
     }
-    private double probabilitasGanas(ArrayList<Data> datas){
+    public double probabilitasGanas(ArrayList<Data> datas){
         double count = 0;
         for(Data d:datas){
             if (d.getKelas()==4) count++;
@@ -96,13 +96,20 @@ public class Data {
         return count/datas.size();
     }
 
-    private double likelihoodClumpTicknessJinak(ArrayList<Data> datas, int income) {
+    public double likelihoodClumpTicknessJinak(ArrayList<Data> datas, int income) {
         double count = 0;
         for (Data d: datas){
             if (d.getClumpTickness()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Clump Tickness|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Clump Tickness|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodCellSizeJinak(ArrayList<Data> datas, int income) {
@@ -110,8 +117,15 @@ public class Data {
         for (Data d: datas){
             if (d.getCellSize()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Uniformity of Cell Size|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Uniformity of Cell Size|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodCellShapeJinak(ArrayList<Data> datas, int income) {
@@ -119,8 +133,15 @@ public class Data {
         for (Data d: datas){
             if (d.getCellShape()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Uniformity of Cell Shape|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Uniformity of Cell Shape|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodMarginalAdhesionJinak(ArrayList<Data> datas, int income) {
@@ -128,8 +149,15 @@ public class Data {
         for (Data d: datas){
             if (d.getMarginalAdhesion()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Marginal Adhesion|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Marginal Adhesion|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodSingleEpithelialCellSizeJinak(ArrayList<Data> datas, int income) {
@@ -137,8 +165,15 @@ public class Data {
         for (Data d: datas){
             if (d.getSingleEpithelialCellSize()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Single Epithalil Cell Size|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Single Epithalil Cell Size|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodBareNucleiJinak(ArrayList<Data> datas, int income) {
@@ -146,8 +181,15 @@ public class Data {
         for (Data d: datas){
             if (d.getBareNuclei()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Bare Nuclei|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Bare Nuclei|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodBlandChromatinJinak(ArrayList<Data> datas, int income) {
@@ -155,8 +197,15 @@ public class Data {
         for (Data d: datas){
             if (d.getBlandChromatin()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Bland Chromation|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Bland Chromation|Jinak) = "+result+"\n";
+        return result;
     }
 
 
@@ -165,8 +214,15 @@ public class Data {
         for (Data d: datas){
             if (d.getNormalNucleoli()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Normal Nucleoli|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Normal Nucleoli|Jinak) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodMitosesJinak(ArrayList<Data> datas, int income) {
@@ -174,16 +230,30 @@ public class Data {
         for (Data d: datas){
             if (d.getMitoses()==income&&d.getKelas()==2) count++;
         }
-        message = message+"P(Mitoses|Jinak) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Mitoses|Jinak) = "+result+"\n";
+        return result;
     }
     public double likelihoodClumpTicknessGanas(ArrayList<Data> datas, int income) {
         double count = 0;
         for (Data d: datas){
             if (d.getClumpTickness()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Clump Tickness|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Clump Tickness|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodCellSizeGanas(ArrayList<Data> datas, int income) {
@@ -191,8 +261,15 @@ public class Data {
         for (Data d: datas){
             if (d.getCellSize()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Uniformity of Cell Size|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Uniformity of Cell Size|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodCellShapeGanas(ArrayList<Data> datas, int income) {
@@ -200,8 +277,15 @@ public class Data {
         for (Data d: datas){
             if (d.getCellShape()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Uniformity of Cell Shape|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Uniformity of Cell Shape|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodMarginalAdhesionGanas(ArrayList<Data> datas, int income) {
@@ -209,8 +293,15 @@ public class Data {
         for (Data d: datas){
             if (d.getMarginalAdhesion()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Marginal Adhesion|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Marginal Adhesion|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodSingleEpithelialCellSizeGanas(ArrayList<Data> datas, int income) {
@@ -218,8 +309,15 @@ public class Data {
         for (Data d: datas){
             if (d.getSingleEpithelialCellSize()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Single Ephitalial Cell Size|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Single Ephitalial Cell Size|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodBareNucleiGanas(ArrayList<Data> datas, int income) {
@@ -227,8 +325,15 @@ public class Data {
         for (Data d: datas){
             if (d.getBareNuclei()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(BareNuclei|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(BareNuclei|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodBlandChromatinGanas(ArrayList<Data> datas, int income) {
@@ -236,8 +341,15 @@ public class Data {
         for (Data d: datas){
             if (d.getBlandChromatin()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Bland Chromatiin|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Bland Chromatiin|Ganas) = "+result+"\n";
+        return result;
     }
 
 
@@ -246,8 +358,15 @@ public class Data {
         for (Data d: datas){
             if (d.getNormalNucleoli()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Normal Nucleoli|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Normal Nucleoli|Ganas) = "+result+"\n";
+        return result;
     }
 
     public double likelihoodMitosesGanas(ArrayList<Data> datas, int income) {
@@ -255,8 +374,15 @@ public class Data {
         for (Data d: datas){
             if (d.getMitoses()==income&&d.getKelas()==4) count++;
         }
-        message = message+"P(Mitoses|Ganas) = "+count/datas.size()+"\n";
-        return count/datas.size();
+        double result;
+        if (count==0){
+            result = 1/(datas.size()+2);
+        }
+        else {
+            result = count/datas.size();
+        }
+        message = message+"P(Mitoses|Ganas) = "+result+"\n";
+        return result;
     }
     public void getKelas(ArrayList<Data> datas, TextView tv){
         double jinak = probabilitasJinak(datas)*likelihoodClumpTicknessJinak(datas,getClumpTickness())*likelihoodCellSizeJinak(datas,getCellSize())*likelihoodCellShapeJinak(datas,getCellShape())*likelihoodMarginalAdhesionJinak(datas,getMarginalAdhesion())*likelihoodSingleEpithelialCellSizeJinak(datas,getSingleEpithelialCellSize())*likelihoodBareNucleiJinak(datas, getBareNuclei())*likelihoodBlandChromatinJinak(datas, getBlandChromatin())*likelihoodNormalNucleoliJinak(datas, getNormalNucleoli())*likelihoodMitosesJinak(datas, getMitoses());
@@ -271,4 +397,5 @@ public class Data {
         }
         tv.setText(message);
     }
+
 }
